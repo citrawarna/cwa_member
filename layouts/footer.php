@@ -52,14 +52,11 @@
       xhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
           var member = JSON.parse(this.responseText);
-
-          var pos = 0;
           var id = setInterval(kocok, 10);
           function kocok(){
             if(val.value == "0"){
               clearInterval(id);
             } else {
-              pos++;
               var lucky = member[Math.floor((Math.random()*member.length) + 0)];
               var stringNull;
               if(lucky.kdmember.length == 5 || lucky.kdmember.length == "5"){
@@ -70,7 +67,6 @@
               names.innerHTML = stringNull + lucky.kdmember + " - " + lucky.nm_member;
             }
           }
-
         }
       };
       xhttp.open("GET", "member_json.php", true);
