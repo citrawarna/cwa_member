@@ -55,14 +55,19 @@
 
           var pos = 0;
           var id = setInterval(kocok, 10);
-          console.log(member[0].kdmember);
           function kocok(){
             if(val.value == "0"){
               clearInterval(id);
             } else {
               pos++;
               var lucky = member[Math.floor((Math.random()*member.length) + 0)];
-              names.innerHTML = lucky.kdmember + " - " + lucky.nm_member;
+              var stringNull;
+              if(lucky.kdmember.length == 5 || lucky.kdmember.length == "5"){
+                stringNull = "00";
+              } else {
+                stringNull = "0";
+              }
+              names.innerHTML = stringNull + lucky.kdmember + " - " + lucky.nm_member;
             }
           }
 
